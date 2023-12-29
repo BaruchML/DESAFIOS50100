@@ -51,7 +51,18 @@ class ProductManager {
 
         return 'producto agregado'
     }
-    getProdById (pid){
+    getProdById (pid, campo, nuevoElemento){
+        const byId = this.products.find(prod => prod.id === pid)
+
+        if (!byId){
+            return 'ERROR: ID NOT FOUND'
+        } else {
+            const {...byCampo} = byId
+            let claves = Object.keys(byCampo)
+            return claves
+        }
+    }
+    updateProduct(pid){
         const byId = this.products.find(prod => prod.id === pid)
 
         if (!byId){
@@ -60,7 +71,6 @@ class ProductManager {
             return byId
         }
     }
-    updateProduct(){}
     deleteProduct(){}
 }
 debugger
@@ -77,7 +87,7 @@ console.log(products.getProducts());
 
 
 //BUSQUEDA POR IDS
-console.log(products.getProdById(2));
+console.log(products.getProdById(1,2,2));
 console.log(products.getProdById(5));
 
 

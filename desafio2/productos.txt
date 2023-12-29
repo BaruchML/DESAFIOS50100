@@ -1,0 +1,1 @@
+[{"title":"arroz","description":"20kg","price":100,"thumnail":"sinimagen","code":"abc123","stock":10,"id":1},{"title":"leche","description":"12lt","price":180,"thumnail":"sinimagen","code":"888","stock":20,"id":2}]
