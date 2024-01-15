@@ -96,28 +96,3 @@ socketServer.on('connection',socket => {
 
 })
 
-
-
-// let mensajes =[]
-// io.on('connection', socket => {
-//   console.log('cliente conectado');
-
-
-// socket.on('message', data=>{
-  //   console.log(data);
-  //   mensajes.push(data)
-  
-  //   io.emit('messageLogs', mensajes)
-  
-  // })
-  // })
-  
-  
-  //PRIMERA PARTE CLASE 10---------------------------
-  //emitir mensaje del lado del cliente 
-  // socket.emit('solo-para-el-actual', 'Hola cliente')
-  
-  // socket.broadcast.emit('para-todos-menos-el-actual','PARA EL RESTO')
-  
-  // socketServer.emit('para-todos','mensaje para todos')  
-  //PRIMERA PARTE CLASE 10---------------------------

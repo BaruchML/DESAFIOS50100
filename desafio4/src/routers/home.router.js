@@ -31,16 +31,10 @@ let products =
   }
 ]
 
-
-// const product = products.find(p => p.id === 1)
-// console.log({product});
-
 router.get("/", (req, res) => {
     res.render('home', {
-  
       products,
       
-    
       })
   });
 
