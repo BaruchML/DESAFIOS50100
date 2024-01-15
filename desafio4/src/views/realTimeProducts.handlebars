@@ -1,30 +1,30 @@
-
 <div>
-    <p>Escribe el numero de id para eliminar el producto</p>
+  <p>Escribe el numero de id para eliminar el producto</p>
   <input id="chatbox" type="text">
 
   <p>Si quieres agregar un nuevo producto llena los campos porfavor</p>
-  
- <input id="newTitleProd" type="text">
-  <input id="newPriceProd" type="text">
-
+  <form id="newProduct">
+    <input id="newTitleProd" type="text">
+    <input id="newPriceProd" type="text">
+    <button type="submit">guardar producto</button>
+  </form>
 </div>
 <h1>Productos</h1>
 
-<div id="productos" >
+<div id="productos">
 </div>
 
 
 
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/realTimeProducts.js"></script> 
+<script src="/js/realTimeProducts.js"></script>
 {{!-- {{#each products}}
-<ul >
-<li>
- {{this.id}}
-{{this.title}}
-{{this.price }}
-</li>
+<ul>
+  <li>
+    {{this.id}}
+    {{this.title}}
+    {{this.price }}
+  </li>
 </ul>
 {{/each}} --}}

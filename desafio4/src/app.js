@@ -81,19 +81,17 @@ socketServer.on('connection',socket => {
       
       socketServer.emit('Datos', products)
     })
-let newProd = []
-socket.on('newtitle', valorTitle => {
-newProd.push(valorTitle);
 
 
-})
-socket.on('newprice', valorPrice => {
-  newProd.push(valorPrice);
-  
-})
+    socket.on('newProduct', data => {
+      let newProd = products.find(p=> p.title === data.title)
 
-
-console.log(newProd);
+      if (!newProd){
+        data.id = products.length + 1
+        products.push(data)
+        socketServer.emit('Datos', products)
+      }else{console.log('Producto ya existe');}
+    })
   
 
 })

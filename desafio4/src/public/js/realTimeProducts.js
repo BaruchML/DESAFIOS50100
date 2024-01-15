@@ -1,18 +1,18 @@
 const socket = io()
-socket.emit('message','Buenas desde socket')
+socket.emit('message', 'Buenas desde socket')
 
 let productsList = document.querySelector('#productos')
 console.log(productsList)
 
-const chatbox= document.querySelector('#chatbox')
+const chatbox = document.querySelector('#chatbox')
 chatbox.addEventListener('keyup', (evt) => {
-if(evt.key === 'Enter'){
-    socket.emit('prodeliminado', chatbox.value)
+    if (evt.key === 'Enter') {
+        socket.emit('prodeliminado', chatbox.value)
 
-    console.log(chatbox.value);
-    chatbox.value=''
+        console.log(chatbox.value);
+        chatbox.value = ''
 
-}
+    }
 })
 
 socket.on('Datos', data => {
@@ -25,31 +25,16 @@ socket.on('Datos', data => {
 })
 
 
+const newProductForm = document.getElementById('newProduct')
 
-const newTitleProd = document.querySelector('#newTitleProd')
-const newPriceProd = document.querySelector('#newPriceProd')
-
-newTitleProd.addEventListener('keyup', (evt)=>{
-    if(evt.key === 'Enter'){
-        socket.emit('newtitle',{title:newTitleProd.value})
-        newTitleProd.value = ''
-    } 
-
+newProductForm.addEventListener("submit", (evt) => {
+    evt.preventDefault()
+    const newProduct= {
+    title: newProductForm[0].value,
+    price: newProductForm[1].value,
+}
+    socket.emit('newProduct', newProduct)
+    newProductForm.reset()
 })
 
-newPriceProd.addEventListener('keyup', (evt)=>{
-    if(evt.key === 'Enter'){
-        socket.emit('newprice',{price:newTitleProd.value})
-        newPriceProd.value = ''
-    } 
-
-})
-
-// if(newTitleProd || newPriceProd){
-//     console.log('Producto Creado');
-// }
-
-
-console.log(newPriceProd.value);
-console.log(newTitleProd.value);
 console.log('Hola desde realtime');
