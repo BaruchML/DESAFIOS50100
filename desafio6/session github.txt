@@ -1,0 +1,13 @@
+App ID: 821598
+
+Client ID: Iv1.a14a3e9ef0b81265 
+
+client secret: 4d6c2b1a41f70365656098c1c151145607858699
+
+
+USUARIO ATLAS MONGO DB
+
+user: BARUCHML123
+password:TpLnR78wIzFREIlj
+
+
