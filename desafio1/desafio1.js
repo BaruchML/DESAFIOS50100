@@ -47,4 +47,79 @@ console.log(products.getProdById(2));
 
 
 
+let objeto = {
+    title: 'Nombre',
+    description: 'Descripcion',
+    price: 1200,
+    thumbnail: 'Nombre',
+    code: 'a',
+    stock: 10
+}
+let objeto2 = {
+    title: 'Nombre',
+    description: 'Descripcion',
+    price: 1200,
+    // thumbnail: 'Nombre',
+    code: 'a',
+    stock: 10
+}
+let objeto3 = {
+    title: 'Nombre',
+    // description: 'Descripcion',
+    price: 1200,
+    thumbnail: 'Nombre',
+    code: 'a',
+    stock: 10
+}
+let objeto4 = {
+    title: 'Nombre',
+    description: 'Descripcion',
+    price: 1200,
+    thumbnail: 'Nombre',
+    code: 'b',
+    stock: 10
+}
 
+
+class ProductManager {
+
+  
+    constructor() {
+        this.idProduct = 0
+        this.products = []
+    }
+    addProduct = ({ ...product }) => {
+        if (!product.title || !product.description || !product.price || !product.thumbnail  || !product.code || !product.stock) {
+            return 'Producto Incompleto'
+        }
+        const findCode = this.products.find(p => p.code === product.code)
+        if (!findCode) {
+            this.idProduct = this.idProduct + 1
+            const productAdded = {id:this.idProduct,...product}
+            this.products.push(productAdded)
+            return productAdded
+        }
+        return 'Ya se encuentra ese producto'
+    }
+    getProducts = () => {
+          return this.products
+    }
+    getProductById = (idProduct) => {
+         const findProduct = this.products.find(p => p.id === idProduct)
+         if (!findProduct) {
+            return 'No se encuentra el producto'
+         }
+         return findProduct
+    }
+
+}
+
+const mayonesa = new ProductManager()
+console.log(mayonesa.addProduct(objeto));
+console.log(mayonesa.addProduct(objeto));
+console.log(mayonesa.addProduct(objeto2));
+console.log(mayonesa.addProduct(objeto3));
+console.log(mayonesa.addProduct(objeto4));
+console.log(mayonesa.getProducts());
+console.log(mayonesa.getProductById(2));
+console.log(mayonesa.getProductById(3));
